@@ -19,7 +19,7 @@ export default function OfferBanner() {
 
     return (
         <div id="offer" role="banner">
-            <p>¡Oferta flash! Tus envíos de menos de 2kg al 50%</p>
+            <p>¡Oferta flash! Tus envíos de menos de 2Kg al 50%</p>
             <p>Finaliza en: <span id="countdown"></span></p>
         </div>
     )

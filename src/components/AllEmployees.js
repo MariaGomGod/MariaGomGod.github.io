@@ -1,29 +1,31 @@
 import { useState, useEffect } from "react";
+import EmployeeCard from "./EmployeeCard";
+import './AllEmployees.sass';
 
 export default function AllEmployees() {
 
     const [employees, setEmployees] = useState([]);
 
+    const isCurrentlyWorkingHere = employee =>
+        employee.Profession !== 'Unemployed' &&
+        employee.Profession !== 'Unknown';
+
     useEffect(() => {
         fetch('https://futuramaapi.herokuapp.com/api/v2/characters')
             .then(response => response.json())
-            .then(data => setEmployees(data))
+            .then(data => setEmployees(data.filter(isCurrentlyWorkingHere).slice(0, 8)));
     }, []);
 
     return (
         <>
+        <h3>Nuestro equipo</h3>
+        <div id="employees">
         {
             employees.map(employee => 
-                <div className="card border-dark col-6">
-                    <img className="card-img-top col-6 m-auto" src={employee.PicUrl} alt=""></img>
-                    <div className="card-body">
-                        <h3 className="card-name">{employee.Name}</h3>
-                        <p>Ubicación: {employee.Planet}</p>
-                        <p>Puesto: {employee.Profession}</p>
-                    </div>
-                </div>
+                <EmployeeCard employee={employee} />
             )
-        };
+        }
+        </div>
         </>
     )
 }
