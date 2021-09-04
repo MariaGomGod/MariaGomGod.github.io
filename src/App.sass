@@ -56,6 +56,22 @@ header, footer
            display: inline-block
            margin-right: 3vw
 
+header
+  height: 100px
+  padding: 0 3vw
+
+  img#logo
+    height: 100px
+    float: left
+  
+  nav.navbar
+    line-height: 100px
+    float: left
+
+    li.nav-item
+      margin-left: 5vw
+      font-size: 20px
+
 @media all and ( max-width: 960px )
     .navbar
         ul
@@ -83,3 +99,9 @@ div.overlay
         &:nth-of-type(2)
             top: 50%
             max-width: 581px
+
+#content
+  clear: both
+
+svg[class^='fa-w-'], svg[class*=' fa-w-'] //para todas las imágenes que contengan una clase que empiece por fa-w- (iconos de fontawesome)
+  font-size: 25px
