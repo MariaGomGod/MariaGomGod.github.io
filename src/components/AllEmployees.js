@@ -17,16 +17,16 @@ export default function AllEmployees() {
     }, []);
 
     return (
-        <>
-        <h3>Nuestro equipo</h3>
         <div id="employees">
-        {
-            employees.map(employee => 
-                <EmployeeCard employee={employee} />
-            )
-        }
+            <h2>Nuestro equipo</h2>
+            <div className="card-list">
+            {
+                employees.map(employee => 
+                     <EmployeeCard key={employee.Name} employee={employee} />
+                )
+            }
+            </div>
         </div>
-        </>
     )
 }
 

@@ -1,5 +1,6 @@
 import { faFacebook, faTwitter, faPaypal, faCcVisa, faCcMastercard, faCcAmex} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Footer.sass';
 
 export default function Footer() {
     return (
@@ -9,16 +10,16 @@ export default function Footer() {
                     <ul>
                         <li className="nav-item">
                             <a className="nav-link" href="/about">ACERCA&nbsp;DE</a>
-                        </li>
+                        </li>&nbsp;|&nbsp;
                         <li className="nav-item">
                             <a className="nav-link" href="/jobs">EMPLEO</a>
-                        </li>
+                        </li>&nbsp;|&nbsp;
                         <li className="nav-item">
                             <a className="nav-link" href="/term-and-conditions">CONDICIONES&nbsp;DE&nbsp;USO</a>
-                        </li>
+                        </li>&nbsp;|&nbsp;
                         <li className="nav-item">
                             <a className="nav-link" href="/privacy">DECLARACIÓN&nbsp;DE&nbsp;PRIVACIDAD</a>
-                        </li>
+                        </li>&nbsp;|&nbsp;
                         <li className="nav-item">
                             <a className="nav-link" href="/cookies">ACEPTACIÓN&nbsp;COOKIES</a>
                         </li>
@@ -38,7 +39,6 @@ export default function Footer() {
                             <FontAwesomeIcon icon={faCcAmex} />
                         </p>
                     </div>
-                    <svg className="asdsadsadfa-w-"></svg>
                 </nav>
             </footer>
         </>

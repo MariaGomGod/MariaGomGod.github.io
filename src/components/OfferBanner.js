@@ -1,3 +1,6 @@
+import './OfferBanner.sass';
+import ShippingCostCalculator from './ShippingCostCalculator';
+
 export default function OfferBanner() {
 
     let countDown = 7200; // cuenta atrás en segundos (2 horas).
@@ -19,8 +22,13 @@ export default function OfferBanner() {
 
     return (
         <div id="offer" role="banner">
-            <p>¡Oferta flash! Tus envíos de menos de 2Kg al 50%</p>
-            <p>Finaliza en: <span id="countdown"></span></p>
+            <div id="offer-description">
+                <p>¡Oferta flash! Tus envíos de menos de 2Kg al 50%</p>
+                <p>Finaliza en: <span id="countdown"></span></p>
+            </div>
+            <div id="calculator-widget">
+                <ShippingCostCalculator />
+            </div>
         </div>
     )
 }

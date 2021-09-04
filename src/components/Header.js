@@ -1,6 +1,7 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import logo from '../images/logo2.png'
+import logo from '../images/logo_t.png'
+import './Header.sass';
 
 export default function Header () {
   return (

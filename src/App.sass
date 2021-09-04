@@ -1,5 +1,11 @@
+@import styles/_variables
+
+body
+  background-color: $primary  
+
 .App
   text-align: center
+  background-color: $octonary
 
 .App-logo
   height: 40vmin
@@ -33,20 +39,23 @@ header, footer
     text-align: center
     width: 100%
     clear: both
-    margin: 2vw 0
+    padding: 2vw 0
 
     .navbar
        margin: auto
+       font-weight: bold
+       color: $primary 
     
        ul
            list-style: none
            display: inline-block
-           padding-left: 3vw
-           margin-top: 0
+           padding: 0
+           margin: 0
 
            li
                display: inline
-               margin-left: 1vw
+               margin: 0 0.5vw
+               
             
            :first-child
                margin-left: 0
@@ -61,8 +70,10 @@ header
   padding: 0 3vw
 
   img#logo
-    height: 100px
+    height: 90px
     float: left
+    position: relative
+    top: 5px
   
   nav.navbar
     line-height: 100px
@@ -93,15 +104,41 @@ div.overlay
     transform: translate(-50%, -50%)
 
     > div
+        color: $primary
+
         &:nth-of-type(1)
             display: none
        
         &:nth-of-type(2)
             top: 50%
             max-width: 581px
+            border-radius: 10px
 
-#content
+            form
+                h3
+                  margin-bottom: 0
+
+                .control-group
+                  margin-top: 0.5vw
+                  
+                  input
+                    width: 50%
+                    border-radius: 5px
+                    border-width: 1.5px
+
+                button
+                  background-color: $octonary
+                  color: $primary
+                  padding: 0.5vw
+                  border-radius: 10px
+                  margin-top: 1vw
+
+#main
   clear: both
 
 svg[class^='fa-w-'], svg[class*=' fa-w-'] //para todas las imágenes que contengan una clase que empiece por fa-w- (iconos de fontawesome)
   font-size: 25px
+  margin: 0 0.5vw
+
+.invisible
+  visibility: hidden
