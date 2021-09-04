@@ -40,7 +40,7 @@ export default function Newsletter() {
 
         {
             userSubscribed ? 
-            <p>{email}</p> :
+            <p>E-mail: {email} registrado exitosamente.</p> :
             <></>
         }
 
