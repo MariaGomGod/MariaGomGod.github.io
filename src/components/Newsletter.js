@@ -6,45 +6,47 @@ export default function Newsletter() {
   const [isOpen, setIsOpen] = useState(false);
 
   const [email, setEmail] = useState("");
-  const [userSubscribed, setUserSubscribed] = useState(false);
+
+  const showConfirmationMessage = () =>  document.getElementById("confirmation-message").classList.remove("invisible");
+ 
+  const hideConfirmationMessage = () =>  document.getElementById("confirmation-message").classList.add("invisible");
 
   const handleSubmit = e => {
       e.preventDefault();
       e.target.reset();
-      setUserSubscribed(true);
+      showConfirmationMessage();
   }
 
   return (
-    <div>
-      <button onClick={() => setIsOpen(true)}>Suscríbete a nuestra Newsletter</button>
+    <>
+      <button className="overlay-button" onClick={() => setIsOpen(true)}>Suscríbete a nuestra Newsletter</button>
       <Modal className="overlay" show={isOpen} closeModal={() => {
           setIsOpen(false);
-          setUserSubscribed(false); // ocultamos el mensaje de éxito
+          hideConfirmationMessage(); // ocultamos el mensaje de confirmación
           setEmail(""); // vaciamos el email
     }}>
         <form onSubmit={handleSubmit}>
-            <h4>Ponte al día de las últimas novedades</h4>
-            <div>
-                <input type="text" className="form-control" id="email" placeholder="Introduce tu e-mail aquí" maxLenght="200" required
-                onInput={e => setEmail(e.target.value)}></input>
+            <h3>Ponte al día de las últimas novedades</h3>
+            <div className="control-group">
+                <input type="text" className="form-control" id="email" placeholder="Introduce tu e-mail" maxlenght="200" required
+                onInput={e => {
+                  setEmail(e.target.value);
+                  hideConfirmationMessage();
+                }}></input>
             </div>
-            <div>
+            <div className="control-group checkbox">
                 <input type="checkbox" id="privacy-policy-checkbox" required></input>
                 <label htmlFor="privacy-policy-checkbox">
-                    He podido leer y entiendo la política de privacidad y cookies y acepto 
+                    He leído y entiendo la política de privacidad y cookies, y acepto 
                     recibir comunicaciones comerciales de Planet Express a través de e-mail
                 </label>
             </div>
-            <button type="submit" className="button">Suscribir</button>
+            <div className="control-group">
+                <button type="submit" className="button">Suscribir</button>
+            </div>
         </form>
-
-        {
-            userSubscribed ? 
-            <p>E-mail: {email} registrado exitosamente.</p> :
-            <></>
-        }
-
+        <p id="confirmation-message" className="modal-message invisible">¡Gracias por suscribirte, {email}!</p>
       </Modal>
-    </div>
+    </>
   )
 }

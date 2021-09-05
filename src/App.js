@@ -5,15 +5,21 @@ import AllEmployees from './components/AllEmployees'
 import Footer from './components/Footer'
 import OfferBanner from './components/OfferBanner'
 import Carousel from './components/Carousel'
+import TwitterFeed from './components/TwitterFeed'
 
 function App () {
   return (
     <div className='App'>
       <OfferBanner />
       <Header />
-      <div id='main'>
-        <Carousel />
-        <AllEmployees />
+      <Carousel />
+      <div id='content'>
+        <div id='main'>
+          <AllEmployees />
+        </div>
+        <aside>
+          <TwitterFeed />
+        </aside>
       </div>
       <Footer />
     </div>

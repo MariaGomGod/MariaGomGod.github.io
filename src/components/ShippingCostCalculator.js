@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-modal-overlay';
-import './ShippingCostCalculator.sass';
 
 export default function ShippingCostCalculator() {
 
@@ -20,7 +19,7 @@ export default function ShippingCostCalculator() {
 
   return (
     <>
-      <button id="compute-button" onClick={() => setIsOpen(true)}>Calcula el importe de tu envío</button>
+      <button className="overlay-button" onClick={() => setIsOpen(true)}>Calcula el importe de tu envío</button>
       <Modal className="overlay" show={isOpen} closeModal={() => {
           setIsOpen(false);
           hideComputationResult(); // ocultamos el mensaje de éxito
@@ -43,12 +42,13 @@ export default function ShippingCostCalculator() {
                   hideComputationResult();
                 }}></input>
             </div>
-            
-            <button type="submit" className="button">Calcula tu importe</button>
+            <div className="control-group">
+                <button type="submit" className="button">Calcula tu importe</button>
+            </div>
         </form>
         <div id="computation-result" className="invisible">
-            <p>El coste de su envío asciende a {(numberOfPackages * packageWeight * (packageWeight < 2 ? 3 : 6)).toFixed(2)}€</p>
-            <p>{packageWeight > 0 && packageWeight < 2 ? "Oferta flash aplicada automáticamente" : "Descuentos no aplicables"}</p>
+            <p className="modal-message">El coste de su envío asciende a {(numberOfPackages * packageWeight * (packageWeight < 2 ? 3 : 6)).toFixed(2)}€</p>
+            <p className="modal-message" style={{marginTop: 0}}>{packageWeight > 0 && packageWeight < 2 ? "Oferta flash aplicada automáticamente" : "Descuentos no aplicables"}</p>
         </div>
       </Modal>
     </>

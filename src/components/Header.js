@@ -1,7 +1,8 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import logo from '../images/logo_t.png'
+import logo from '../images/logo.png'
 import './Header.sass';
+import Newsletter from './Newsletter';
 
 export default function Header () {
   return (
@@ -35,6 +36,7 @@ export default function Header () {
           </li>
         </ul>
       </nav>
+      <Newsletter />
     </header>
   )
 }
